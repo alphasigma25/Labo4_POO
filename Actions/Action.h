@@ -7,7 +7,7 @@
 
 class Action {
 public:
-   virtual void execute(const Field& field) = 0;
+   virtual void execute(Field& field) = 0;
 };
 
 

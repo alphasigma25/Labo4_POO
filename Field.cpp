@@ -7,7 +7,8 @@
 
 using namespace std;
 
-Field::Field() : turn(0) {}
+Field::Field(int height, int width, int nbHumans, int nbVampires) : turn(0),
+                                                                    dimensions{height, width}, nbHumans(nbHumans), nbVampires(nbVampires) {}
 
 int Field::nextTurn()
 {
@@ -31,4 +32,12 @@ int Field::nextTurn()
 
 const list<Humanoid *> &Field::getPopulation() const {
    return humanoids;
+}
+
+int Field::getHeight() const {
+   return dimensions[0];
+}
+
+int Field::getWidth() const {
+   return dimensions[1];
 }

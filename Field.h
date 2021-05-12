@@ -6,16 +6,24 @@
 #define L4_FIELD_H
 
 #include <list>
-#include "iostream"
 #include "Humanoids/Humanoid.h"
+
+class Humanoid;
 
 class Field {
    std::list<Humanoid*> humanoids;
    int turn;
 
+   int nbHumans;
+   int nbVampires;
+   const int dimensions[2];
+
 public:
-   Field();
+   Field(int height, int width, int nbHumans, int nbVampires);
    int nextTurn();
+
+   int getHeight() const;
+   int getWidth() const;
 
    const std::list<Humanoid *> &getPopulation() const;
 };

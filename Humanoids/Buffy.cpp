@@ -3,3 +3,7 @@
 //
 
 #include "Buffy.h"
+
+char Buffy::symbol() const {
+   return 'b';
+}

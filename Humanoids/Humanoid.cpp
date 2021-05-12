@@ -1,5 +1,4 @@
 #include "Humanoid.h"
-#include "Coordinate.h"
 
 using namespace std;
 
@@ -16,4 +15,8 @@ int Humanoid::distanceTo(const Humanoid &o) {
 
 void Humanoid::move(const valarray<int> &newPlace) {
    coord = newPlace;
+}
+
+const valarray<int> &Humanoid::getPos() {
+   return coord;
 }

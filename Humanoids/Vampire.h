@@ -5,7 +5,8 @@
 #include "Humanoid.h"
 
 class Vampire : public Humanoid {
-
+public:
+   char symbol() const override;
 };
 
 

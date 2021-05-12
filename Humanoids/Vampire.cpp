@@ -3,3 +3,7 @@
 //
 
 #include "Vampire.h"
+
+char Vampire::symbol() const {
+   return 'v';
+}

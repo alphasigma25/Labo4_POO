@@ -3,3 +3,7 @@
 //
 
 #include "Human.h"
+
+char Human::symbol() const {
+   return 'h';
+}
