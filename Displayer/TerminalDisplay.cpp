@@ -20,9 +20,9 @@ void TerminalDisplay::display() {
       char type = ' ';
       if(typeid(&it) == typeid(Human)) {
          type = 'h';
-      } else if(typeid(&it) == typeid(Vampire)) {
+      } else if(typeid(*it) == typeid(Vampire)) {
          type = 'v';
-      } else if(typeid(&it) == typeid(Buffy)) {
+      } else if(typeid(*it) == typeid(Buffy)) {
          type = 'B';
       }
       tab[it->getPos()[0]][it->getPos()[1]] = type;

@@ -3,6 +3,7 @@
 
 
 #include "Action.h"
+#include "../Humanoids/Human.h"
 
 class Move : public Action {
    using Coord = std::valarray<size_t>;

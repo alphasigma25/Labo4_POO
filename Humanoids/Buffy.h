@@ -6,7 +6,13 @@
 
 class Buffy: public Humanoid {
 public:
+   Buffy(const Coord &coord);
+
    char symbol() const override;
+
+   void setAction(Field &field) override;
+
+   void kill() override;
 };
 
 

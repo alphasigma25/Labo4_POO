@@ -9,6 +9,12 @@ int main() {
 
    TerminalDisplay td(&f);
 
-   td.display();
+   cout << "hello" << endl;
+   while(f.stillRunning()){
+      td.display();
+      f.nextTurn();
+   }
+
+
    return 0;
 }

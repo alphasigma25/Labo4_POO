@@ -1,4 +1,5 @@
 #include "Move.h"
+#include "../Humanoids/Human.h"
 
 using namespace std;
 Move::Move(Humanoid &h, const Coord& dest) : Action(h), dest(dest){}

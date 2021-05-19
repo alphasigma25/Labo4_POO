@@ -6,7 +6,11 @@
 
 class Vampire : public Humanoid {
 public:
+   Vampire(const Coord &coord);
+
    char symbol() const override;
+
+   void setAction(Field &field) override;
 };
 
 

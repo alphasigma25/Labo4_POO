@@ -6,6 +6,8 @@
 #define L4_FIELD_H
 
 #include <list>
+#include <typeinfo>
+#include <cstdlib>
 #include "Humanoids/Humanoid.h"
 
 class Humanoid;
@@ -16,16 +18,23 @@ class Field {
 
    int nbHumans;
    int nbVampires;
-   const int dimensions[2];
+   const size_t dimensions[2];
 
 public:
-   Field(int height, int width, int nbHumans, int nbVampires);
+   Field(size_t height, size_t width, int nbHumans, int nbVampires);
+   ~Field();
    int nextTurn();
 
    int getHeight() const;
    int getWidth() const;
 
    const std::list<Humanoid *> &getPopulation() const;
+
+   bool stillRunning() const;
+
+   Humanoid * closestTo(Humanoid* h, const std::type_info& ti);
+
+   void addHumanoid(Humanoid* h);
 };
 
 

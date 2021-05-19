@@ -4,6 +4,10 @@
 
 
 #include "../Field.h"
+#include "../Humanoids/Humanoid.h"
+
+class Humanoid;
+class Field;
 
 class Action {
 public:
