@@ -2,8 +2,9 @@
 // Created by AnneSo on 12.05.2021.
 //
 
+#include <ctime>
 #include "Human.h"
-
+#include "../Actions/Move.h"
 char Human::symbol() const {
    return 'h';
 }

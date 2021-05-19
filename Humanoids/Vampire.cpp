@@ -2,7 +2,12 @@
 // Created by AnneSo on 12.05.2021.
 //
 
+#include <ctime>
 #include "Vampire.h"
+#include "Human.h"
+#include "../Actions/Move.h"
+#include "../Actions/Kill.h"
+#include "../Actions/Convert.h"
 
 char Vampire::symbol() const {
    return 'v';

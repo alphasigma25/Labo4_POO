@@ -5,7 +5,9 @@
 #include "Action.h"
 
 class Kill : public Action {
-
+public:
+   void execute(Field &field) override;
+   explicit Kill(Humanoid *h);
 };
 
 

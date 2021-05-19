@@ -6,6 +6,9 @@
 #include "../Actions/Action.h"
 #include <valarray>
 class Field;
+class Action;
+
+using Coord = std::valarray<size_t>;
 
 class Humanoid {
 protected:

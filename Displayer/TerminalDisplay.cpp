@@ -18,7 +18,7 @@ void TerminalDisplay::display() {
    // remplir tableau
    for(Humanoid* it : f->getPopulation()) {
       char type = ' ';
-      if(typeid(&it) == typeid(Human)) {
+      if(typeid(*it) == typeid(Human)) {
          type = 'h';
       } else if(typeid(*it) == typeid(Vampire)) {
          type = 'v';

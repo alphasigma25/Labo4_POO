@@ -4,6 +4,7 @@
 
 #include "Humanoid.h"
 
+
 class Buffy: public Humanoid {
 public:
    Buffy(const Coord &coord);

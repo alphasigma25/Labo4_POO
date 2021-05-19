@@ -3,7 +3,9 @@
 //
 
 #include "Buffy.h"
-
+#include "Vampire.h"
+#include "../Actions/Move.h"
+#include "../Actions/Kill.h"
 char Buffy::symbol() const {
    return 'b';
 }
