@@ -11,6 +11,7 @@ public:
    char symbol() const override;
 
    void setAction(Field &field) override;
+   
 };
 
 

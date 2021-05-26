@@ -5,6 +5,9 @@
 #include <ctime>
 #include "Human.h"
 #include "../Actions/Move.h"
+
+using namespace std;
+
 char Human::symbol() const {
    return 'h';
 }
@@ -29,3 +32,7 @@ void Human::setAction(Field &field) {
 }
 
 Human::Human(const Coord &coord) : Humanoid(coord) {}
+
+Human::~Human() {
+   cout << "on détruit un humain" << endl;
+}

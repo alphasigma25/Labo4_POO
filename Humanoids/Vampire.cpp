@@ -38,3 +38,4 @@ void Vampire::setAction(Field &field) {
 }
 
 Vampire::Vampire(const Coord &coord) : Humanoid(coord) {}
+

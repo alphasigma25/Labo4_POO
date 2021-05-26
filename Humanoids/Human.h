@@ -13,6 +13,8 @@ public:
 
    void setAction(Field &field) override;
 
+   virtual ~Human();
+
 };
 
 

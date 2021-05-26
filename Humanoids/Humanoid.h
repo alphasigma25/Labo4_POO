@@ -20,7 +20,7 @@ public:
 
    int distanceTo(Humanoid *o);
 
-   virtual ~Humanoid();
+   virtual ~Humanoid() = default;
 
    void move(const Coord& newPlace);
    const Coord& getPos();

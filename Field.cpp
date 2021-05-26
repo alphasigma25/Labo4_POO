@@ -18,7 +18,7 @@ Field::Field(size_t height, size_t width, int nbHumans, int nbVampires)
       Humanoid* h = (Humanoid *) new Human({(rand() % height), rand() % width});
       humanoids.push_back(h);
    }
-   for(size_t i = 0; i < nbHumans; ++i){
+   for(size_t i = 0; i < nbVampires; ++i){
       Humanoid* h = (Humanoid *) new Vampire({(rand() % height), rand() % width});
       humanoids.push_back(h);
    }
