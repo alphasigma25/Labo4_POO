@@ -31,5 +31,3 @@ void Humanoid::executeAction(Field &field) {
       delete action;
    }
 }
-
-Humanoid::~Humanoid() = default;

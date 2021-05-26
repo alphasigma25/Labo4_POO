@@ -3,6 +3,7 @@
 //
 
 #include <ctime>
+#include <iostream>
 #include "Human.h"
 #include "../Actions/Move.h"
 
