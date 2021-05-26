@@ -35,6 +35,8 @@ public:
    Humanoid * closestTo(Humanoid* h, const std::type_info& ti);
 
    void addHumanoid(Humanoid* h);
+
+   int isInBounds(Humanoid* target);
 };
 
 

@@ -31,7 +31,6 @@ public:
    bool isAlive() const;
    virtual void kill();
 
-
 };
 
 

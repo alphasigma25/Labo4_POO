@@ -11,7 +11,8 @@ bool Humanoid::isAlive() const {
 }
 
 int Humanoid::distanceTo(Humanoid *o) {
-   return abs(coord - o->coord).max();
+   return max(abs(getPos().getX() - o->getPos().getX()),
+               abs(getPos().getY() - o->getPos().getY()));
 }
 
 void Humanoid::move(const Coord &newPlace) {
