@@ -4,9 +4,10 @@
 
 #include "Action.h"
 #include "../Humanoids/Human.h"
+#include "../Utils/Coordinate.h"
 
 class Move : public Action {
-   using Coord = std::valarray<size_t>;
+   using Coord = Coordinate;
    Coord dest;
 public:
    Move(Humanoid *h, const Coord &dest);

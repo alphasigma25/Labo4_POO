@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-   Field f(50,50,20,10);
+   Field f(10,20,5,3);
 
    TerminalDisplay td(&f);
 
@@ -14,7 +14,6 @@ int main() {
       td.display();
       f.nextTurn();
    }
-
 
    return 0;
 }

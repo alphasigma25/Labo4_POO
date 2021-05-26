@@ -9,10 +9,6 @@
 
 using namespace std;
 
-char Human::symbol() const {
-   return 'h';
-}
-
 void Human::setAction(Field &field) {
    //générer le déplacement aléatoire
    srand(time(NULL));
@@ -23,17 +19,16 @@ void Human::setAction(Field &field) {
    }
    while(deltaX == 0 && deltaY == 0);
 
-   size_t x = coord[0] + deltaX;
-   size_t y = coord[1] + deltaY;
+   int x = getPos().getX() + deltaX;
+   int y = getPos().getY() + deltaY;
 
-   if(x > field.getWidth()) x = coord[0];
-   if(y > field.getHeight()) y = coord[1];
+   if(x >= field.getHeight() || x < 0) x = this->getPos().getX();
+   if(y >= field.getWidth() || y < 0) y = this->getPos().getY();
 
-   action = new Move((Humanoid*) this, {x,y});
+   action = new Move((Humanoid*) this, Coordinate(x,y));
 }
 
 Human::Human(const Coord &coord) : Humanoid(coord) {}
 
 Human::~Human() {
-   cout << "on détruit un humain" << endl;
 }

@@ -10,4 +10,4 @@ add_executable(L4 main.cpp Field.cpp Field.h
         Humanoids/Vampire.cpp Humanoids/Vampire.h
         Humanoids/Human.cpp Humanoids/Human.h
         Displayer/TerminalDisplay.cpp Displayer/TerminalDisplay.h
-        Actions/Kill.cpp Actions/Kill.h Actions/Move.cpp Actions/Move.h Actions/Convert.cpp Actions/Convert.h)
+        Actions/Kill.cpp Actions/Kill.h Actions/Move.cpp Actions/Move.h Actions/Convert.cpp Actions/Convert.h Utils/Coordinate.cpp Utils/Coordinate.h)

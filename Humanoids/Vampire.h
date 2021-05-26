@@ -8,7 +8,7 @@ class Vampire : public Humanoid {
 public:
    Vampire(const Coord &coord);
 
-   char symbol() const override;
+   virtual ~Vampire();
 
    void setAction(Field &field) override;
    

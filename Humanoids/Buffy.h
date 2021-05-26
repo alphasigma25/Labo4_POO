@@ -9,9 +9,9 @@ class Buffy: public Humanoid {
 public:
    Buffy(const Coord &coord);
 
-   char symbol() const override;
-
    void setAction(Field &field) override;
+
+   virtual ~Buffy();
 
    void kill() override;
 };

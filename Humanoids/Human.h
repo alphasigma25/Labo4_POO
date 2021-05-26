@@ -9,8 +9,6 @@ class Human : public Humanoid {
 public:
    explicit Human(const Coord &coord);
 
-   char symbol() const override;
-
    void setAction(Field &field) override;
 
    virtual ~Human();

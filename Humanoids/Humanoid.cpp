@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Humanoid.h"
 #include "../Actions/Move.h"
 
@@ -29,5 +30,10 @@ void Humanoid::executeAction(Field &field) {
    if(action != nullptr) {
       action->execute(field);
       delete action;
+      action = nullptr;
    }
+}
+
+Humanoid::~Humanoid() {
+   cout << "on détruit un humanoïd" << endl;
 }

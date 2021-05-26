@@ -25,7 +25,7 @@ void TerminalDisplay::display() {
       } else if(typeid(*it) == typeid(Buffy)) {
          type = 'B';
       }
-      tab[it->getPos()[0]][it->getPos()[1]] = type;
+      tab[it->getPos().getX()][it->getPos().getY()] = type;
    }
 
    cout << "+" << string(f->getWidth(),'-') << "+" << endl;

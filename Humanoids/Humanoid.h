@@ -4,11 +4,12 @@
 
 #include "../Field.h"
 #include "../Actions/Action.h"
+#include "../Utils/Coordinate.h"
 #include <valarray>
 class Field;
 class Action;
 
-using Coord = std::valarray<size_t>;
+using Coord = Coordinate;
 
 class Humanoid {
 protected:
@@ -20,12 +21,10 @@ public:
 
    int distanceTo(Humanoid *o);
 
-   virtual ~Humanoid() = default;
+   virtual ~Humanoid();
 
    void move(const Coord& newPlace);
    const Coord& getPos();
-
-   virtual char symbol() const = 0;
 
    virtual void setAction(Field &field) = 0;
    virtual void executeAction(Field &field) final;

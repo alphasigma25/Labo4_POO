@@ -3,15 +3,14 @@
 //
 
 #include <ctime>
+#include <iostream>
 #include "Vampire.h"
 #include "Human.h"
 #include "../Actions/Move.h"
 #include "../Actions/Kill.h"
 #include "../Actions/Convert.h"
 
-char Vampire::symbol() const {
-   return 'v';
-}
+using namespace std;
 
 void Vampire::setAction(Field &field) {
    Humanoid* target = field.closestTo((Humanoid *)this, typeid(Human));
@@ -19,14 +18,21 @@ void Vampire::setAction(Field &field) {
 
       //distance : (A - B).max();
 
-      Coord delta = (target->getPos() - coord); // "vecteur" de mouvement
-      delta /= abs(delta).max();    // on norme le vecteur pour que le déplacement
-      // soit de 1
+      Coord delta = Coordinate(target->getPos() - coord); // "vecteur" de
+      // mouvement
+      int div = max(abs(delta.getX()),abs(delta.getY()));
+      // on norme le vecteur pour que le déplacement soit de 1
+      delta.setX(delta.getX()/div);
+      delta.setY(delta.getY()/div);
 
-      if((coord + delta)[0] > field.getWidth()) delta[0] = coord[0];
-      if((coord + delta)[1] > field.getHeight()) delta[0] = coord[1];
+      Coord newCoord = delta + getPos();
 
-      action = new Move((Humanoid *) this, coord + delta);
+      if(newCoord.getX() >= field.getWidth() || newCoord.getX() < 0)
+         newCoord.setX(this->getPos().getX());
+      if(newCoord.getY() >= field.getHeight() || newCoord.getY() < 0)
+         newCoord.setY(this->getPos().getY());
+
+      action = new Move((Humanoid *) this, newCoord);
    } else{
       srand (time(NULL));
       if(rand() % 2){
@@ -38,4 +44,7 @@ void Vampire::setAction(Field &field) {
 }
 
 Vampire::Vampire(const Coord &coord) : Humanoid(coord) {}
+
+Vampire::~Vampire() {
+}
 

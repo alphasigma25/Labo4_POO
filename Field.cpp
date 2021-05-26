@@ -15,14 +15,17 @@ Field::Field(size_t height, size_t width, int nbHumans, int nbVampires)
 : turn(0), dimensions{height, width}, nbHumans(nbHumans), nbVampires(nbVampires) {
    srand (time(NULL));
    for(size_t i = 0; i < nbHumans; ++i){
-      Humanoid* h = (Humanoid *) new Human({(rand() % height), rand() % width});
+      Humanoid* h = (Humanoid *) new Human(Coordinate((rand() % height), rand() %
+      width));
       humanoids.push_back(h);
    }
    for(size_t i = 0; i < nbVampires; ++i){
-      Humanoid* h = (Humanoid *) new Vampire({(rand() % height), rand() % width});
+      Humanoid* h = (Humanoid *) new Vampire(Coordinate((rand() % height), rand()
+      % width));
       humanoids.push_back(h);
    }
-   humanoids.push_back((Humanoid *) new Buffy({(rand() % height), rand() % width}));
+   humanoids.push_back((Humanoid *) new Buffy(Coordinate((rand() % height), rand()
+   % width)));
 }
 
 int Field::nextTurn() {
@@ -37,8 +40,9 @@ int Field::nextTurn() {
 // Enlever les humanoides tués
    for (list<Humanoid *>::iterator it = humanoids.begin(); it != humanoids.end();)
       if (!(*it)->isAlive()) {
+         Humanoid* toDelete = *it;
          it = humanoids.erase(it); // suppression de l’élément dans la liste
-         delete *it; // destruction de l’humanoide référencé
+         delete toDelete; // destruction de l’humanoide référencé
       } else {
          ++it;
       }
@@ -93,4 +97,21 @@ Field::~Field() {
    for(Humanoid* h : humanoids){
       delete h;
    }
+}
+
+int Field::isInBounds(Humanoid *target) {
+   int x = target->getPos().getX();
+   int y = target->getPos().getY();
+   bool correctX = x >= 0 && x < getHeight();
+   bool correctY = y >= 0 && y < getWidth();
+   if(correctX && correctY){
+      return 0;
+   }else if(correctX){
+      return 1;
+   }else if(correctY){
+      return 2;
+   }else{
+      return 3;
+   }
+
 }
