@@ -18,6 +18,7 @@ protected:
    bool alive;
    Coordinate move(Field &field);
    Coordinate track(Field &field, Humanoid *target, int n);
+   bool targeted;
 public:
    Humanoid(const Coord &coord);
 
@@ -32,6 +33,9 @@ public:
    virtual void executeAction(Field &field) final;
    bool isAlive() const;
    virtual void kill();
+
+   bool isTargeted() const;
+   void setTargeted(bool targeted);
 };
 
 

@@ -71,7 +71,7 @@ bool Field::stillRunning() {
          vampires = true;
       }
 
-      if(humans && vampires) return true;
+      if(vampires) return true;
    }
    buffyVictory = humans;
    return false;
@@ -87,7 +87,7 @@ Humanoid *Field::closestTo(Humanoid *h, const type_info& ti) {
    for(Humanoid* humanoid : humanoids) {
       if (ti == typeid(*humanoid)) {
          int newDist = h->distanceTo(humanoid);
-         if(newDist < dist){
+         if(newDist < dist && !humanoid->isTargeted()){
             dist = newDist;
             closest = humanoid;
          }

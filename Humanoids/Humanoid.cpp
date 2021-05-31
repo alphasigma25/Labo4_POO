@@ -7,7 +7,8 @@
 
 using namespace std;
 
-Humanoid::Humanoid(const Coord &coord) : alive(true), coord(coord), action(nullptr) {}
+Humanoid::Humanoid(const Coord &coord) : alive(true), coord(coord), action
+(nullptr), targeted(false) {}
 
 bool Humanoid::isAlive() const {
    return alive;
@@ -44,7 +45,7 @@ Humanoid::~Humanoid() {
 
 Coordinate Humanoid::track(Field &field, Humanoid *target, int n) {
 
-   Coord delta = Coordinate(target->getPos() - coord); // "vecteur" de mouvement
+   Coord delta = Coordinate(target->coord - coord); // "vecteur" de mouvement
    int div = max(abs(delta.getX()),abs(delta.getY()));
    // on norme le vecteur pour que le déplacement soit de n
    delta.setX((delta.getX()*n)/div);
@@ -77,4 +78,12 @@ Coordinate Humanoid::move(Field &field) {
    if(x >= field.getHeight() || x < 0) x = this->getPos().getX();
    if(y >= field.getWidth() || y < 0) y = this->getPos().getY();
    return {x,y};
+}
+
+bool Humanoid::isTargeted() const{
+   return targeted;
+}
+
+void Humanoid::setTargeted(bool targeted){
+   this->targeted = targeted;
 }
