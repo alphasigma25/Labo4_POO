@@ -87,7 +87,7 @@ Humanoid *Field::closestTo(Humanoid *h, const type_info& ti) {
    for(Humanoid* humanoid : humanoids) {
       if (ti == typeid(*humanoid)) {
          int newDist = h->distanceTo(humanoid);
-         if(newDist < dist && !humanoid->isTargeted()){
+         if(newDist < dist){
             dist = newDist;
             closest = humanoid;
          }
