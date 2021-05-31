@@ -59,8 +59,9 @@ int main(int argc, char** argv) {
 double simulate(size_t height, size_t width, size_t nbHumans, size_t nbVampires) {
    size_t buffyVictory = 0;
    cout << "pourcentage simulations effectuees : ";
-   for(int i = 0; i < 10000; ++i){
-      if(i%1000 == 0) cout << i/100 << "% - ";
+   int N = 10000;
+   for(int i = 0; i < N; ++i){
+      if(i%(N/10) == 0) cout << i/(N/100) << "% - ";
       Field f(height, width, nbHumans, nbVampires);
       while(f.stillRunning()){
          f.nextTurn();
@@ -68,5 +69,5 @@ double simulate(size_t height, size_t width, size_t nbHumans, size_t nbVampires)
       if(f.isBuffyVictory()) ++buffyVictory;
    }
    cout << endl;
-   return buffyVictory/10000.;
+   return buffyVictory/(double) N;
 }
