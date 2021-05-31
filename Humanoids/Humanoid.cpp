@@ -63,21 +63,22 @@ Coordinate Humanoid::track(Field &field, Humanoid *target, int n) {
 
 Coordinate Humanoid::move(Field &field) {
    //générer le déplacement aléatoire
-   std::default_random_engine generator;
-   std::uniform_int_distribution<int> distribution(-1,1);
+   srand (time(NULL));
    int deltaX, deltaY;
    do {
-      deltaX = distribution(generator);
-      deltaY = distribution(generator);
+      srand (time(NULL));
+      deltaX = (rand() % 3) - 1;
+      srand (time(NULL));
+      deltaY = (rand() % 3) - 1;
    }
    while(deltaX == 0 && deltaY == 0);
 
-   int x = getPos().getX() + deltaX;
-   int y = getPos().getY() + deltaY;
+   int x = coord.getX() + deltaX;
+   int y = coord.getY() + deltaY;
 
-   if(x >= field.getHeight() || x < 0) x = this->getPos().getX();
-   if(y >= field.getWidth() || y < 0) y = this->getPos().getY();
-   return {x,y};
+   if(x >= field.getHeight() || x < 0) x = coord.getX();
+   if(y >= field.getWidth() || y < 0) y = coord.getY();
+   return Coord{x,y};
 }
 
 bool Humanoid::isTargeted() const{
