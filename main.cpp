@@ -22,9 +22,9 @@ int main(int argc, char** argv) {
    int turn = 0;
    bool running = true;
    td.display();
+
+   //TODO : quand buffy à gagné on ne s'arrête pas (cf donnée labo)
    while(f.stillRunning() && running){
-
-
       string cmd;
       double ratio = 0;
       cout << "[" << turn << "] q)uit s)tatistics n)ext:" << endl;
@@ -59,9 +59,9 @@ int main(int argc, char** argv) {
 double simulate(size_t height, size_t width, size_t nbHumans, size_t nbVampires) {
    size_t buffyVictory = 0;
    cout << "pourcentage simulations effectuees : ";
-   int N = 100000;
+   int N = 100000; //TODO : remettre à 10000 simulations
    for(int i = 0; i < N; ++i){
-      if(i%(N/20) == 0) cout << i/(N/100) << "% - ";
+      if(i%(N/20) == 0) cout << i/(N/100) << "%|";
       Field f(height, width, nbHumans, nbVampires);
       while(f.stillRunning()){
          f.nextTurn();
