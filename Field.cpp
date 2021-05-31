@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Field::Field(size_t height, size_t width, int nbHumans, int nbVampires)
+Field::Field(size_t height, size_t width, size_t nbHumans, size_t nbVampires)
 : turn(0), dimensions{height, width}, buffyVictory(false) {
    srand (time(NULL));
    for(size_t i = 0; i < nbHumans; ++i){
