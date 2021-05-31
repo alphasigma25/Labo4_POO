@@ -83,7 +83,7 @@ bool Field::isBuffyVictory() const {
 
 Humanoid *Field::closestTo(Humanoid *h, const type_info& ti) {
    Humanoid* closest = nullptr;
-   int dist = getHeight()*getWidth();
+   int dist = max(getHeight(),getWidth());
    for(Humanoid* humanoid : humanoids) {
       if (ti == typeid(*humanoid)) {
          int newDist = h->distanceTo(humanoid);
