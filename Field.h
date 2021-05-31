@@ -16,8 +16,7 @@ class Field {
    std::list<Humanoid*> humanoids;
    int turn;
 
-   int nbHumans;
-   int nbVampires;
+   bool buffyVictory;
    const size_t dimensions[2];
 
 public:
@@ -30,13 +29,15 @@ public:
 
    const std::list<Humanoid *> &getPopulation() const;
 
-   bool stillRunning() const;
+   bool stillRunning();
 
    Humanoid * closestTo(Humanoid* h, const std::type_info& ti);
 
    void addHumanoid(Humanoid* h);
 
    int isInBounds(Humanoid* target);
+
+   bool isBuffyVictory() const;
 };
 
 

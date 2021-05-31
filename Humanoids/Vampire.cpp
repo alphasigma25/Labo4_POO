@@ -20,22 +20,7 @@ void Vampire::setAction(Field &field) {
    }
    if(target->distanceTo((Humanoid *)this) > 1){
 
-      //distance : (A - B).max();
-
-      Coord delta = Coordinate(target->getPos() - coord); // "vecteur" de
-      // mouvement
-      int div = max(abs(delta.getX()),abs(delta.getY()));
-      // on norme le vecteur pour que le déplacement soit de 1
-      delta.setX(delta.getX()/div);
-      delta.setY(delta.getY()/div);
-
-      Coord newCoord = delta + coord;
-
-      if(newCoord.getX() >= field.getWidth() || newCoord.getX() < 0)
-         newCoord.setX(this->coord.getX());
-      if(newCoord.getY() >= field.getHeight() || newCoord.getY() < 0)
-         newCoord.setY(this->coord.getY());
-
+      Coordinate newCoord = track(field, target, 1);
       action = new Move((Humanoid *) this, newCoord);
    } else{
       srand (time(NULL));

@@ -23,13 +23,13 @@ void Coordinate::setY(int y) {
 }
 
 Coordinate Coordinate::operator+(const Coordinate &other) const {
-   return {x+other.x, y+other.y};
+   return Coordinate{x+other.x, y+other.y};
 }
 
 Coordinate Coordinate::operator-(const Coordinate &other) const {
-   return {x-other.x, y-other.y};
+   return Coordinate{x-other.x, y-other.y};
 }
 
 Coordinate Coordinate::operator+(int val) const {
-   return {x+val,y+val};
+   return Coordinate{x+val,y+val};
 }

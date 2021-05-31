@@ -74,6 +74,10 @@ bool Field::stillRunning() const {
    return humans > 0 || vampires > 0;
 }
 
+bool Field::isBuffyVictory() const {
+   return buffyVictory;
+}
+
 Humanoid *Field::closestTo(Humanoid *h, const type_info& ti) {
    Humanoid* closest = nullptr;
    int dist = getHeight()*getWidth();
