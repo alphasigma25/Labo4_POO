@@ -12,7 +12,7 @@
 using namespace std;
 
 Field::Field(size_t height, size_t width, int nbHumans, int nbVampires)
-: turn(0), dimensions{height, width}, nbHumans(nbHumans), nbVampires(nbVampires) {
+: turn(0), dimensions{height, width}, buffyVictory(false) {
    srand (time(NULL));
    for(size_t i = 0; i < nbHumans; ++i){
       Humanoid* h = (Humanoid *) new Human(Coordinate((rand() % height), rand() %
@@ -61,17 +61,20 @@ int Field::getWidth() const {
    return dimensions[1];
 }
 
-bool Field::stillRunning() const {
-   int humans = 0;
-   int vampires = 0;
+bool Field::stillRunning() {
+   bool humans = false;
+   bool vampires = false;
    for(Humanoid* h: humanoids){
       if(typeid(*h) == typeid(Human)) {
-         ++humans;
+         humans = true;
       } else if(typeid(*h) == typeid(Vampire)) {
-         ++vampires;
+         vampires = true;
       }
+
+      if(humans && vampires) return true;
    }
-   return humans > 0 || vampires > 0;
+   buffyVictory = humans;
+   return false;
 }
 
 bool Field::isBuffyVictory() const {
