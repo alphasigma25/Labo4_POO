@@ -7,13 +7,19 @@
 #include <vector>
 
 class TerminalDisplay {
-   Field const* f;
-
+   Field const *f;
    std::vector<std::string> tab;
 
 public:
-   explicit TerminalDisplay(Field* f);
+   /**
+    * affichage sur terminal d'un champs
+    * @param f champs à afficher
+    */
+   explicit TerminalDisplay(Field *f);
 
+   /**
+    * afficher le champs
+    */
    void display();
 
 };
