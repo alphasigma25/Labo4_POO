@@ -14,6 +14,10 @@ using namespace std;
 
 void Vampire::setAction(Field &field) {
    Humanoid* target = field.closestTo((Humanoid *)this, typeid(Human));
+   if(target == nullptr){
+      action = new Move((Humanoid *) this, coord);
+      return;
+   }
    if(target->distanceTo((Humanoid *)this) > 1){
 
       //distance : (A - B).max();
@@ -25,12 +29,12 @@ void Vampire::setAction(Field &field) {
       delta.setX(delta.getX()/div);
       delta.setY(delta.getY()/div);
 
-      Coord newCoord = delta + getPos();
+      Coord newCoord = delta + coord;
 
       if(newCoord.getX() >= field.getWidth() || newCoord.getX() < 0)
-         newCoord.setX(this->getPos().getX());
+         newCoord.setX(this->coord.getX());
       if(newCoord.getY() >= field.getHeight() || newCoord.getY() < 0)
-         newCoord.setY(this->getPos().getY());
+         newCoord.setY(this->coord.getY());
 
       action = new Move((Humanoid *) this, newCoord);
    } else{

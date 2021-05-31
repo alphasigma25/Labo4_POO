@@ -16,7 +16,10 @@ void Buffy::kill() {
 
 void Buffy::setAction(Field &field) {
    Humanoid* target = field.closestTo((Humanoid *)this, typeid(Vampire));
-   if(target == nullptr) return;
+   if(target == nullptr){
+      action = new Move((Humanoid *) this, coord);
+      return;
+   }
    if(target->distanceTo((Humanoid *)this) > 1){
 
       //distance : (A - B).max();
