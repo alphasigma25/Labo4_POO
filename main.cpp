@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
    return 0;
 }
 
-double simulate(int height, int width, int nbHumans,int nbVampires) {
+double simulate(size_t height, size_t width, size_t nbHumans, size_t nbVampires) {
    size_t buffyVictory = 0;
    for(int i = 0; i < 10000; ++i){
       Field f(height, width, nbHumans, nbVampires);
