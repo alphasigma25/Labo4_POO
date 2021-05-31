@@ -21,9 +21,9 @@ int main(int argc, char** argv) {
 
    int turn = 0;
    bool running = true;
-
+   td.display();
    while(f.stillRunning() && running){
-      td.display();
+
 
       string cmd;
       double ratio = 0;
@@ -36,11 +36,12 @@ int main(int argc, char** argv) {
             break;
          case 's' :
             ratio = simulate(height, width, nbHumans, nbVampires);
-            cout << "ratio : " << ratio * 100 << "% de réussite " << endl;
+            cout << "ratio : " << ratio * 100 << "% de reussite " << endl;
             break;
          case 'n':
          default :
             turn = f.nextTurn();
+            td.display();
             break;
       }
    }
@@ -57,12 +58,15 @@ int main(int argc, char** argv) {
 
 double simulate(size_t height, size_t width, size_t nbHumans, size_t nbVampires) {
    size_t buffyVictory = 0;
+   cout << "pourcentage simulations effectuees : ";
    for(int i = 0; i < 10000; ++i){
+      if(i%1000 == 0) cout << i/100 << "% - ";
       Field f(height, width, nbHumans, nbVampires);
       while(f.stillRunning()){
          f.nextTurn();
       }
       if(f.isBuffyVictory()) ++buffyVictory;
    }
+   cout << endl;
    return buffyVictory/10000.;
 }

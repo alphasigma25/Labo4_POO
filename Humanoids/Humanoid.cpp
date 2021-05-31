@@ -1,5 +1,7 @@
 #include <ctime>
 #include <iostream>
+#include <random>
+
 #include "Humanoid.h"
 #include "../Actions/Move.h"
 
@@ -37,7 +39,7 @@ void Humanoid::executeAction(Field &field) {
 }
 
 Humanoid::~Humanoid() {
-   cout << "on detruit un humanoid" << endl;
+   //cout << "on detruit un humanoid" << endl;
 }
 
 Coordinate Humanoid::track(Field &field, Humanoid *target, int n) {
@@ -63,11 +65,12 @@ Coordinate Humanoid::track(Field &field, Humanoid *target, int n) {
 
 Coordinate Humanoid::move(Field &field) {
    //générer le déplacement aléatoire
-   srand(time(NULL));
+   std::default_random_engine generator;
+   std::uniform_int_distribution<int> distribution(-1,1);
    int deltaX, deltaY;
    do {
-      deltaX = rand() % 3 - 1;
-      deltaY = rand() % 3 - 1;
+      deltaX = distribution(generator);
+      deltaY = distribution(generator);
    }
    while(deltaX == 0 && deltaY == 0);
 
