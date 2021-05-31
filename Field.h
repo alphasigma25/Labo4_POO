@@ -20,7 +20,7 @@ class Field {
    const size_t dimensions[2];
 
 public:
-   Field(size_t height, size_t width, int nbHumans, int nbVampires);
+   Field(size_t height, size_t width, size_t nbHumans, size_t nbVampires);
    ~Field();
    int nextTurn();
 

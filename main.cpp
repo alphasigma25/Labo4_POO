@@ -4,10 +4,18 @@
 
 using namespace std;
 
-int simulate(Field& f);
+double simulate(size_t height, size_t width, size_t nbHumans, size_t nbVampires);
 
-int main() {
-   Field f(10,20,5,3);
+int main(int argc, char** argv) {
+   if (argc < 5){
+      cout << "Usage: height, width, nbHumans, nbVampires";
+      return 0;
+   }
+   size_t height = stoi(argv[1]);
+   size_t width = stoi(argv[2]);
+   size_t nbHumans = stoi(argv[3]);
+   size_t nbVampires = stoi(argv[4]);
+   Field f(height, width, nbHumans, nbVampires);
 
    TerminalDisplay td(&f);
 
@@ -18,7 +26,8 @@ int main() {
       td.display();
 
       string cmd;
-      cout << "[" << turn << "]" << endl;
+      double ratio = 0;
+      cout << "[" << turn << "] q)uit s)tatistics n)ext:" << endl;
       getline(cin, cmd);
 
       switch(*cmd.begin()){
@@ -26,7 +35,8 @@ int main() {
             running = false;
             break;
          case 's' :
-            simulate(f);
+            ratio = simulate(height, width, nbHumans, nbVampires);
+            cout << "ratio : " << ratio * 100 << "% de réussite " << endl;
             break;
          case 'n':
          default :
@@ -45,7 +55,14 @@ int main() {
    return 0;
 }
 
-int simulate(Field& f){
-   //TODO
-   return 0;
+double simulate(int height, int width, int nbHumans,int nbVampires) {
+   size_t buffyVictory = 0;
+   for(int i = 0; i < 10000; ++i){
+      Field f(height, width, nbHumans, nbVampires);
+      while(f.stillRunning()){
+         f.nextTurn();
+      }
+      if(f.isBuffyVictory()) ++buffyVictory;
+   }
+   return buffyVictory/10000.;
 }

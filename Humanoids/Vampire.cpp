@@ -22,7 +22,7 @@ void Vampire::setAction(Field &field) {
 
       Coordinate newCoord = track(field, target, 1);
       action = new Move((Humanoid *) this, newCoord);
-   } else{
+   } else {
       srand (time(NULL));
       if(rand() % 2){
          action = new Kill(target);
