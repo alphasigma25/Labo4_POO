@@ -45,10 +45,10 @@ Humanoid::~Humanoid() {
 Coordinate Humanoid::track(Field &field, Humanoid *target, int n) {
 
    Coord delta = Coordinate(target->coord - coord); // "vecteur" de mouvement
-   int div = max(abs(delta.getX()),abs(delta.getY()));
+   double div = max(abs(delta.getX()),abs(delta.getY()));
    // on norme le vecteur pour que le déplacement soit de n
-   delta.setX((delta.getX()*n)/div);
-   delta.setY((delta.getY()*n)/div);
+   delta.setX(ceil(delta.getX()/div)*n);
+   delta.setY(ceil(delta.getY()/div)*n);
 
    Coord newCoord = delta + coord;
 

@@ -7,6 +7,7 @@
  *
  */
 class Convert : public Kill {
+   Coordinate deathCoord;
 public:
    /**
     * @param h humanoide à convertir

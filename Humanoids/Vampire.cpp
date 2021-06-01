@@ -25,8 +25,8 @@ void Vampire::setAction(Field &field) {
       action = new Move((Humanoid *) this, newCoord);
    } else if(!target->isTargeted()){
       target->setTargeted(true);
-      srand (time(NULL));
-      if(rand() % 2){
+      randomGenerator rg = randomGenerator::getGenerator();
+      if(rg.getRand(0,1)){
          action = new Kill(target);
       }else {
          action  = new Convert(target);
