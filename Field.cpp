@@ -6,6 +6,7 @@
 #include "Humanoids/Buffy.h"
 #include "Humanoids/Vampire.h"
 #include "Humanoids/Human.h"
+#include "Utils/randomGenerator.h"
 #include <list>
 #include <ctime>
 
@@ -13,19 +14,19 @@ using namespace std;
 
 Field::Field(size_t height, size_t width, size_t nbHumans, size_t nbVampires)
 : turn(0), dimensions{height, width}, buffyVictory(false) {
-   srand (time(NULL));
+   randomGenerator rg = randomGenerator::getGenerator();
    for(size_t i = 0; i < nbHumans; ++i){
-      Humanoid* h = (Humanoid *) new Human(Coordinate((rand() % height), rand() %
-      width));
+      Humanoid* h = (Humanoid *) new Human(
+            Coordinate(rg.getRand(0,height-1), rg.getRand(0,width-1)));
       humanoids.push_back(h);
    }
    for(size_t i = 0; i < nbVampires; ++i){
-      Humanoid* h = (Humanoid *) new Vampire(Coordinate((rand() % height), rand()
-      % width));
+      Humanoid* h = (Humanoid *) new Vampire(
+            Coordinate(rg.getRand(0,height-1), rg.getRand(0,width-1)));
       humanoids.push_back(h);
    }
-   humanoids.push_back((Humanoid *) new Buffy(Coordinate((rand() % height), rand()
-   % width)));
+   humanoids.push_back((Humanoid *) new Buffy(
+         Coordinate(rg.getRand(0,height-1), rg.getRand(0,width-1))));
 }
 
 int Field::nextTurn() {

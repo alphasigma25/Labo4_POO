@@ -1,9 +1,8 @@
 #include <ctime>
 #include <iostream>
-#include <random>
 
 #include "Humanoid.h"
-#include "../Actions/Move.h"
+#include "../Utils/randomGenerator.h"
 
 using namespace std;
 
@@ -63,13 +62,11 @@ Coordinate Humanoid::track(Field &field, Humanoid *target, int n) {
 
 Coordinate Humanoid::move(Field &field) {
    //générer le déplacement aléatoire
-   srand (time(NULL));
+   randomGenerator rg = randomGenerator::getGenerator();
    int deltaX, deltaY;
    do {
-      srand (time(NULL));
-      deltaX = (rand() % 3) - 1;
-      srand (time(NULL));
-      deltaY = (rand() % 3) - 1;
+      deltaX = rg.getRand(-1,1);
+      deltaY = rg.getRand(-1,1);
    }
    while(deltaX == 0 && deltaY == 0);
 
