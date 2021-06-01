@@ -9,14 +9,14 @@
 class Humanoid;
 
 /**
- * classe field permettant de simuler un champs avec des humanoides
+ * classe field permettant de simuler un champ avec des humanoides
  */
 class Field {
-   std::list<Humanoid*> humanoids;
-   int turn;
+   std::list<Humanoid*> humanoids; // tous les humanoïdes de la simulation
+   int turn; // Le tour actuel de la simulation
 
-   bool buffyVictory;
-   const size_t dimensions[2];
+   bool buffyVictory; // true si Buffy a gagné (pas de vampires et au moins un humain vivant)
+   const size_t dimensions[2]; // dimensions du champ
 
 public:
    /**
@@ -55,7 +55,7 @@ public:
    Humanoid * closestTo(Humanoid* h, const std::type_info& ti);
 
    /**
-    * ajout d'un humanoide au champs
+    * ajout d'un humanoide au champ
     * @param h humanoide à rajouter
     */
    void addHumanoid(Humanoid* h);

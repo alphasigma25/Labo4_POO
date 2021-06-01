@@ -4,10 +4,10 @@
 #include "Kill.h"
 
 /**
- *
+ * Action de Conversion d'un humain en vampire
  */
 class Convert : public Kill {
-   Coordinate deathCoord;
+   Coordinate deathCoord; //Les coordonnées où le vampire devra naître
 public:
    /**
     * @param h humanoide à convertir

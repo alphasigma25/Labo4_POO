@@ -9,11 +9,11 @@ class Humanoid;
 class Field;
 
 /**
- * classe Action
+ * classe symbolisant l'action qu'un humanoïde peut effectuer
  */
 class Action {
 protected:
-   Humanoid *h;
+   Humanoid *h; //L'humanoïde qui va subir l'action
 public:
    /**
     * @param h humanoide qui va exécuter l'action

@@ -2,7 +2,9 @@
 #define L4_HUMAN_H
 
 #include "Humanoid.h"
-
+/**
+ * Classe représentant un humain banal de la simulation
+ */
 class Human : public Humanoid {
 public:
    /**

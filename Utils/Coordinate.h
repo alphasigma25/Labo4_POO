@@ -5,7 +5,9 @@
 #ifndef L4_COORDINATE_H
 #define L4_COORDINATE_H
 
-
+/**
+ * Classe représentant une coordonnée 2D
+ */
 class Coordinate {
 int x;
 int y;

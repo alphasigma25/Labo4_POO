@@ -10,13 +10,15 @@ class Field;
 class Action;
 
 using Coord = Coordinate;
-
+/**
+ * Classe représentant les acteurs de la simulation
+ */
 class Humanoid {
 protected:
-   Action* action;
-   Coord coord;
-   bool alive;
-   bool targeted;
+   Action* action; // L'action de l'humanoïde pour le tour courant
+   Coord coord; // Là où se trouve l'humanoïde
+   bool alive; // indique si l'humanoïde est vivant
+   bool targeted; // indique si l'humanoïde a été ciblé (par des vampires pour être tué)
 
    /**
     * calcule les déplacements d'un humanoide dans un champs donné

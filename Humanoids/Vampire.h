@@ -3,7 +3,9 @@
 
 
 #include "Humanoid.h"
-
+/**
+ * Classe représentant l'acteur Vampire de la simulation
+ */
 class Vampire : public Humanoid {
 public:
    /**

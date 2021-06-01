@@ -4,7 +4,9 @@
 
 #include "Humanoid.h"
 
-
+/**
+ * Classe représentant l'acteur Buffy de la simulation
+ */
 class Buffy: public Humanoid {
 public:
    /**

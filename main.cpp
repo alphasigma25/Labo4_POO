@@ -3,12 +3,19 @@
 #include "Displayer/TerminalDisplay.h"
 
 using namespace std;
-
+/**
+ * Lance 10'000 simulations avec les paramètres suivants
+ * @param height La hauteur du champ
+ * @param width La longueur du champ
+ * @param nbHumans nombre d'humains
+ * @param nbVampires nombre de vampires
+ * @return le pourcentage de réussites
+ */
 double simulate(size_t height, size_t width, size_t nbHumans, size_t nbVampires);
 
 int main(int argc, char** argv) {
    if (argc < 5){
-      cout << "Usage: height, width, nbHumans, nbVampires";
+      cout << "Usage: height width nbHumans nbVampires";
       return 0;
    }
    size_t height = stoi(argv[1]);

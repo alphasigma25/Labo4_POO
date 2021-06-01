@@ -4,10 +4,12 @@
 #include "Action.h"
 #include "../Humanoids/Human.h"
 #include "../Utils/Coordinate.h"
-
+/**
+ * Action de mouvement d'un humanoïde
+ */
 class Move : public Action {
    using Coord = Coordinate;
-   Coord dest;
+   Coord dest; //Là où l'humanoïde sera bougé
 public:
    /**
     * effectue le déplacement d'un humanoïde

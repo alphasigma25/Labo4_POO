@@ -3,6 +3,9 @@
 
 #include "Action.h"
 
+/**
+ * Action de meurtre d'un humanoïde
+ */
 class Kill : public Action {
 public:
 

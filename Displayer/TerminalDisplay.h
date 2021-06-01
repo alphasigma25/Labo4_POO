@@ -6,9 +6,12 @@
 #include <string>
 #include <vector>
 
+/**
+ * Classe permettant d'afficher la simulation sur le terminal
+ */
 class TerminalDisplay {
-   Field const *f;
-   std::vector<std::string> tab;
+   Field const *f; //Le field à afficher
+   std::vector<std::string> tab; //Le tableau graphique affiché
 
 public:
    /**
