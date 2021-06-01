@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
 <classDiagram>
   <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="Buffy">
+    <entity entityType="CLASS" id="30517" isAbstract="false" name="RandomGenerator" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="true" name="rg" type="randomGenerator" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="getRand" returnType="int" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="min" type="int"/>
+        <variable const="false" name="max" type="int"/>
+      </method>
+      <method isAbstract="false" isStatic="true" name="getGenerator" returnType="RandomGenerator" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
     <association aggregation="NONE" direction="BIDIRECTIONAL" id="30359" name="">
       <role componentId="29161" name="" visibility="PRIVATE">
         <multiplicity>
@@ -358,7 +366,7 @@
       <multipliciteAssociation>
         <x>324</x>
         <y>269</y>
-        <w>21</w>
+        <w>22</w>
         <h>16</h>
       </multipliciteAssociation>
     </relationView>
@@ -638,6 +646,14 @@
         <h>220</h>
       </geometry>
     </componentView>
+    <componentView color="-2079" componentID="30517" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>640</x>
+        <y>160</y>
+        <w>230</w>
+        <h>100</h>
+      </geometry>
+    </componentView>
     <note color="-2079" content="un humanoïd de type Buffy ne peut pas être tué">
       <noteGeometry>
         <x>1170</x>
@@ -689,6 +705,24 @@
         <point>
           <x>241</x>
           <y>461</y>
+        </point>
+      </noteLine>
+    </note>
+    <note color="-2079" content="utilisé dans Field, Humanoid et Vampire pour génération d'aléatoire">
+      <noteGeometry>
+        <x>900</x>
+        <y>180</y>
+        <w>180</w>
+        <h>60</h>
+      </noteGeometry>
+      <noteLine color="-12566464" relationId="30517">
+        <point>
+          <x>901</x>
+          <y>211</y>
+        </point>
+        <point>
+          <x>871</x>
+          <y>211</y>
         </point>
       </noteLine>
     </note>
