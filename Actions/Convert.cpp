@@ -9,7 +9,7 @@ using namespace std;
 
 void Convert::execute(Field &field) {
    Kill::execute(field);
-   field.addHumanoid((Humanoid*) new Vampire(h->getPos()));
+   field.addHumanoid((Humanoid*) new Vampire(deathCoord));
 }
 
-Convert::Convert(Humanoid* h) : Kill(h){}
+Convert::Convert(Humanoid* h) : Kill(h), deathCoord(h->getPos()){}

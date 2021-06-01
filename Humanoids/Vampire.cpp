@@ -9,6 +9,7 @@
 #include "../Actions/Move.h"
 #include "../Actions/Kill.h"
 #include "../Actions/Convert.h"
+#include "../Utils/randomGenerator.h"
 
 using namespace std;
 
