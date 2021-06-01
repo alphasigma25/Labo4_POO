@@ -20,7 +20,6 @@ class Field {
 
 public:
    /**
-    *
     * @param height hauteur du champ
     * @param width largeur du champ
     * @param nbHumans nombre d'humains
@@ -35,6 +34,9 @@ public:
     */
    int nextTurn();
 
+   /**
+    * getteurs pour la hauteur, la largeur et la liste des humanoides
+    */
    int getHeight() const;
    int getWidth() const;
    const std::list<Humanoid *> &getPopulation() const;
@@ -59,8 +61,6 @@ public:
     * @param h humanoide à rajouter
     */
    void addHumanoid(Humanoid* h);
-
-   int isInBounds(Humanoid* target);
 
    /**
     * @return vrai s'il n'y a plus de vampires

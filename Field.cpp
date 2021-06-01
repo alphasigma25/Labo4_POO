@@ -106,20 +106,3 @@ Field::~Field() {
       delete h;
    }
 }
-
-int Field::isInBounds(Humanoid *target) {
-   int x = target->getPos().getX();
-   int y = target->getPos().getY();
-   bool correctX = x >= 0 && x < getHeight();
-   bool correctY = y >= 0 && y < getWidth();
-   if(correctX && correctY){
-      return 0;
-   }else if(correctX){
-      return 1;
-   }else if(correctY){
-      return 2;
-   }else{
-      return 3;
-   }
-
-}

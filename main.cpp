@@ -30,8 +30,7 @@ int main(int argc, char** argv) {
    bool running = true;
    td.display();
 
-   //TODO : quand buffy à gagné on ne s'arrête pas (cf donnée labo)
-   while(f.stillRunning() && running){
+   while(running){
       string cmd;
       double ratio = 0;
       cout << "[" << turn << "] q)uit s)tatistics n)ext:" << endl;
